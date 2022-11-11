@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setembro amarelo</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FFF27A;
+            font-family:'Arimo', sans-serif;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.3);
+            height: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 10px #332302;
+        }
+        #link-ajuda{
+            font-size: 1.5em;
+            padding: 1rem 0 1rem 0;
+        }
+        main {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        p{
+            padding: 0 20px 0 20px;
+        }
+        span{
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+        #slogan {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(238, 232, 170, 0.5);
+            width: 100%;
+            margin-top: 30px;
+            padding: 30px 0 30px 0;
+            margin-bottom: 15px;
+        }
+        #slogan div:first-child {
+            width: calc(50% - 30px);
+            padding-right: 15px;
+        }
+        #slogan div:last-child {
+            width: calc(50% - 30px);
+        }
+        #slogan #slideshow{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(50% - 15px);
+        }
+        #slogan #prev {
+            box-sizing: border-box;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-size: 2em;
+            color: white;
+            margin-left: 30px;
+            position: absolute;
+            margin-right: 590px;
+        }
+        #slogan #next {
+            box-sizing: border-box;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-size: 2em;
+            color: white;
+            margin-right: 30px;
+            position: absolute;
+            margin-left: 590px;
+        }
+        #slogan img{
+            width: 600px;
+            display: none;
+        }
+        #slogan img.active {
+            display: initial;
+        }
+        .partes{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            align-items: center;
+            padding: 1rem 0 1rem 0;
+        }
+        .partes img{
+            width: 420px;
+            height: 420px;
+        }
+        #parte2{
+            flex-wrap: wrap-reverse;
+            background-color: rgba(238, 232, 170, 0.5);
+        }
+        .textox{
+            width: 50%;
+        }
+        .textox , .partes h2 ,.partes p{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #slogan .acess{
+            position: absolute;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+            border: none;
+            margin: 250px 500px 0 0;
+        }
+        #slogan .acess img{
+            display: inline;
+            width: 40px;
+        }
+        .partes .acess{
+            position: absolute;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+            border: none;
+            margin: 340px 340px 0 0;
+        }
+        .partes .acess img{
+            width: 40px;
+            height: 40px;
+        }
+        .divfoto{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 420px;
+            flex-direction: column;
+        }
+        .null{
+            display: none;
+        }
+        #v1,#v2{
+            width: 600px;
+        }
+        .partes video{
+            width: 420px;
+        }
+        @media screen and (max-width: 1100px) {
+            #slogan{
+                flex-wrap: wrap;
+            }
+            #slogan div:first-child {
+                width: 100%;
+            }
+
+            #slogan div:last-child {
+                width: calc(90% - 30px);
+            }
+            #slogan #prev {
+                margin-right: 400px;
+            }
+            #slogan #next {
+                margin-left: 400px;
+            }
+            #slogan img{
+                width: 420px;
+            }
+            #v1{
+                width: 420px;
+            }
+            .textox , .partes h2 ,.partes p{
+                width: 90%;
+            }
+            #textoslide{
+                padding: 0 1rem 0 1rem;
+            }
+            #slogan .acess{
+            margin: 170px 340px 0 0;
+            }
+        }
+
+        .titulo {
+            font-size: 2.6em;
+        }
+
+        .subtitulo {
+            background-color: #ffea00;
+            padding: 1rem 2rem 1rem 2rem;
+            border-radius: 100px;
+            box-shadow: 5px 5px 10px #332302;
+        }
+
+        .texto {
+            font-size: 1.3em;
+            padding: 0 0.5rem 0 0.5rem;
+        }
+
+        .Dados {
+            font-size: 1.4em;
+        }
+        .ideias2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .ideias2 ul {
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 100%;
+            padding-top: 1rem;
+        }
+        @media screen and (max-width: 450px) {
+            header img{
+                width: 150px;
+            }
+            #link-ajuda{
+                font-size: 1.2rem;
+            }
+            .titulo{
+                font-size: 1.8rem;
+            }
+            .texto{
+                font-size: 1.1rem;
+            }
+            .subtitulo{
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            #slogan img{
+                width: 300px;
+            }
+            #slogan{
+                width: 100%;
+            }
+            #slogan video{
+                width: 300px;
+            }
+            .partes video{
+                width: 300px;
+            }
+            .partes img, .divfoto{
+                width: 280px;
+                height: 280px;
+            }
+            .partes{
+                width: 100%px;
+            }
+            #slogan #next{
+                margin-left: 280px;
+            }
+            #slogan #prev{
+                margin-right: 280px;
+            }
+            #slogan .acess{
+                margin: 100px 230px 0 0;
+            }
+            .partes .acess{
+                margin: 200px 200px 0 0;
+            }
+        }
+        p.null{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" alt="Setembro amarelo">
+    </header>
+    <main>
+        <div id="slogan">
+            <div id="textoslide">
+                <h1 class="titulo">Como podemos ajudar na prevenção ao suicídio?</h2>
+                <p class="texto">Diferente do que muita gente acredita, prevenir o suicídio é possível, sim! O mês de
+                    Setembro é conhecido mundialmente como o mês de prevenção ao suicídio. Um tema complexo e cheio de
+                    tabus, mas que não pode ser ignorado pela sociedade. Principalmente porque em 90% dos casos, o suicídio
+                    pode ser evitado, através de medidas de conscientização.</p>
+            </div>
+            <div id="slideshow">
+                <button id="prev" onclick="slidesub()">&#10094;</button>
+                <button id="next" onclick="slideup()">&#10095;</button>
+                <img src="images/slide1.jpg" id="i1" class="active" alt="Não tenha vergonha de pedir ajuda">
+                <img src="images/slide2.jpg" id="i2" alt="Não é drama, não é para chamar a aenção, muito menos frescura">
+                <video src="videos/tenha vergonha não.mp4" id="v1" class="null" controls muted>video de acessibilidade</video>
+                <video src="videos/não é drama.mp4" id="v2" class="null" controls muted>video de acessibilidade</video>
+                <button class="acess" onclick="slider()"><img src="images/libras02-300x300.png" alt="botão de acessibilidade"></button>
+            </div>
+        </div>
+        <div>
+            <div class="partes">
+                <div class="textox">
+                    <h2 class="subtitulo">Expressão de ideias ou de intenções suicidas.</h2>
+                    <p class="texto">Fiquem atentos para os comentários abaixo. Pode parecer óbvio, mas muitas vezes são
+                        ignorados:</p>
+                    <div class="ideias2">
+                        <ul>"Vou desaparecer.”</ul>
+                        <ul>“Vou deixar vocês em paz.”</ul>
+                        <ul>“Eu queria poder dormir e nunca mais acordar.”</ul>
+                        <ul>“É inútil tentar fazer algo para mudar, eu só quero me matar.”</ul>
+                        <ul>“queria desaparecer.”</ul>
+                        <ul>“a vida não tem mais sentido.”</ul>
+                        <ul>“não sei por que ainda estou aqui.”</ul>
+                        <ul>“quero acabar com tudo.”</ul>
+                    </div>
+                </div>
+                <div class="divfoto">
+                    <img src="images/foto1.png" id="f3" alt="Sua vida importa, você não está sozinho"><span id="s3">Art: Nathalia Silva de França Fonseca CG: 07</span>
+                    <video src="videos/campanha.mp4" id="v3" class="null" controls muted>video de acessibilidade</video>
+                    <button class="acess" onclick="video1()"><img src="images/libras02-300x300.png" alt="botão de acessibilidade"></button>
+                </div>
+            </div>
+            <div class="partes" id="parte2">
+                <div class="divfoto">
+                    <img src="images/foto2.png" id="f4" alt="Você não está sozinho, você é amado"><span id="s4">Art: Lais Campos Martins CG: 07</span>
+                    <video src="videos/você não esta sozinho, você é amado.mp4" id="v4" class="null" controls muted>video de acessibilidade</video>
+                    <button class="acess" onclick="video2()"><img src="images/libras02-300x300.png" alt="botão de acessibilidade"></button>
+                </div>
+                <div class="textox">
+                    <h2 class="subtitulo">Como suspeitar que alguém pode precisar de ajuda</h2>
+                    <p class="texto">Mas como é possível ajudar alguém que esteja passando por problemas graves e ainda ter
+                        condições de suspeitar de que a pessoa tenha plano de tirar a própria vida? Os psicólogos reforçam que na
+                        grande maioria das vezes, o indivíduo dá sinais de sua intenção.
+                        Entretanto, como não estamos tão acostumados a ouvir e escutar o outro com clareza, esses sinais passam
+                        despercebidos ou só fazem sentido após o suicídio. Ou então, o que é muito comum, não levamos a sério a
+                        declaração e a interpretamos equivocadamente como uma brincadeira de mau gosto. « Ofereça ajuda se achar
+                        necessário, como apoio psicológico, psiquiátrico e instituições confiáveis.
+                    <p>
+                </div>
+            </div>
+            <div class="partes">
+                <div class="textox">
+                    <h2 class="subtitulo">A importância do acompanhamento profissional</h2>
+    
+                    <p class="texto">Você pode ajudar se oferecendo para marcar a consulta com o profissional de saúde. Se
+                        você acha que essa pessoa está em perigo imediato, a orientação do Ministério da Saúde é não
+                        deixá-la sozinha. Você pode procurar ajuda de profissionais de serviços de saúde, de emergência ou
+                        entrar em contato com alguém de confiança, indicado pela própria pessoa. Se a pessoa com quem você
+                        está preocupado vive com você, assegure-se de que ela não tenha acesso a meios para provocar a
+                        própria morte em casa.</p>
+                </div>
+                <div class="divfoto">
+                    <img src="images/foto3.png" id="f5" alt="Você não está sozinho"><span id="s5">Art: Gabriel Vieira Galotti CG: 07</span>
+                    <video src="videos/esta sozinho não.mp4" id="v5" class="null" controls muted>video de acessibilidade</video>
+                    <button class="acess" onclick="video3()"><img src="images/libras02-300x300.png" alt="botão de acessibilidade"></button>
+                </div>
+            </div>
+        </div>
+        <a href="Bonus.html" id="link-ajuda">Peça ajuda</a>
+    </main>
+    <footer>
+        <a href="tel:+55188">Clique aqui para ligar para o Centro de Valorização da Vida (CVV)</a>
+        <p>Créditos: Turma TI-42, Senac Santos</p>
+    </footer>
+    <script>
+        let cont = 1;
+        function slideup() {
+            document.getElementById('i'+cont).classList.remove("active");
+            cont ++;
+            if(cont > 2){
+                cont = 1 
+            }
+            document.getElementById('i'+cont).classList.toggle("active");
+        }
+        function slidesub() {
+            document.getElementById('i'+cont).classList.remove("active");
+            cont --;
+            if(cont < 1){
+                cont = 2
+            }
+            document.getElementById('i'+cont).classList.toggle("active");
+        }
+        function slider(){
+            document.getElementById('i'+cont).classList.toggle("active");
+            document.getElementById('prev').classList.toggle('null');
+            document.getElementById('next').classList.toggle('null');
+            document.getElementById('i1').classList.toggle('null');
+            document.getElementById('i2').classList.toggle('null');
+            if(cont == 1){
+                document.getElementById('v1').classList.toggle('null');
+            }
+            else if(cont == 2){
+                document.getElementById('v2').classList.toggle('null');
+            }
+        }
+        function video1(){
+            document.getElementById('f3').classList.toggle('null');
+            document.getElementById('v3').classList.toggle('null');
+            document.getElementById('s3').classList.toggle('null');
+        }
+        function video2(){
+            document.getElementById('f4').classList.toggle('null');
+            document.getElementById('v4').classList.toggle('null');
+            document.getElementById('s4').classList.toggle('null');
+        }
+        function video3(){
+            document.getElementById('f5').classList.toggle('null');
+            document.getElementById('v5').classList.toggle('null');
+            document.getElementById('s5').classList.toggle('null');
+        }
+    </script>
+</body>
+
+</html>

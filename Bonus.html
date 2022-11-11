@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setembro Amarelo</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FFF27A;
+            font-family: 'Arimo', sans-serif;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.3);
+            height: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 10px #332302;
+        }
+
+        p {
+            width: 70%;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 15px;
+            color: white;
+            border-radius: 25px;
+            background-color: #313131;
+            padding: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        p:hover {
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            width: 270px;
+            transition: 600ms ease-in-out;
+        }
+
+        main img {
+            width: 350px;
+            height: 500px;
+            box-shadow: 10px 20px 40px black;
+        }
+
+        .primeiro_card_fora {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 80%;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .primeiro_card {
+            width: 350px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-image: url('/images/aaaaaa.png');
+            background-size: 100%;
+            font-size: 0.8em;
+            box-shadow: 10px 20px 40px black;
+            margin: 0 50px 0 50px;
+        }
+
+        .primeiro_card p:first-child {
+            margin-top: 60px;
+        }
+
+        .localiza {
+            border-radius: 50px;
+
+        }
+
+        .localiza img {
+            width: 350px;
+            height: 500px;
+        }
+
+        img.null {
+            display: none;
+        }
+
+        @media screen and (max-width: 900px) {
+            main img {
+                width: 300px;
+                height: 390px;
+            }
+
+            .primeiro_card {
+                margin: 0;
+                width: 300px;
+                height: 385px;
+                font-size: 0.6rem;
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+
+            .localiza img {
+                width: 300px;
+                height: 385px;
+            }
+
+            p:hover {
+                border-top-right-radius: 100px;
+                border-bottom-left-radius: 100px;
+                width: 200px;
+                transition: 600ms ease-in-out;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            header img{
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <a href="index.html"><img src="../images/logo.png" alt="Setembro amarelo"></a>
+    </header>
+    <main>
+        <div class="primeiro_card_fora">
+            <img src="/images/My project-1.png" class="imagem_RedeAte" alt="">
+            <div class="primeiro_card">
+                <p onclick="cacete('1')">Centro De Psicologia UNIP</p>
+                <p onclick="cacete('2')">CAPS Orquidário</p>
+                <p onclick="cacete('3')">CAPS Zona Noroeste</p>
+                <p onclick="cacete('4')">CAPS Centro</p>
+                <p onclick="cacete('5')">UNIMONTE Unidade Vila Mathias</p>
+                <p onclick="cacete('6')">Centro Psi Saúde</p>
+                <p onclick="cacete('7')">Lêvitude</p>
+                <p onclick="cacete('8')">UNISANTOS</p>
+                <p onclick="cacete('9')">Núcleo de Promoção</p>
+            </div>
+            <div class="localiza">
+                <img src="/images/ana costa 63.png" alt="" id="1" class="null">
+                <img src="/images/caps orq.png" alt="" id="2" class="null">
+                <img src="/images/caps zno.png" alt="" id="3" class="null">
+                <img src="/images/centro.png" alt="" id="4" class="null">
+                <img src="/images/comendador 52.png" alt="" id="5" class="null">
+                <img src="/images/cuba.png" alt="" id="6" class="null">
+                <img src="/images/levvv.png" alt="" id="7" class="null">
+                <img src="/images/My project-3.png" alt="" id="8" class="null">
+                <img src="/images/rangel.png" alt="" id="9" class="null">
+            </div>
+        </div>
+    </main>
+    <script>
+        let cont = 0;
+        function cacete(num) {
+            if (cont != 0) {
+                document.getElementById(cont).classList.add("null");
+            }
+            document.getElementById(num).classList.remove("null");
+            cont = num;
+        }
+    </script>
+</body>
+
+</html>
